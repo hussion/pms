@@ -1,13 +1,7 @@
-
-/**
- * Module dependencies.
- */
-
 var express = require('express');
-var routes = require('./routes');
-var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
+var utils = require('./utils');
 
 var app = express();
 
@@ -21,6 +15,12 @@ app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(express.cookieParser('your secret here'));
 app.use(express.session());
+/*app.use(function(req, res, next){
+  var url = req.originalUrl;
+  if (url != 'user/login' && url != 'user/reg' && !req.session.user)
+    return res.redirect('/user/login');
+  next();
+});*/
 app.use(app.router);
 app.use(require('less-middleware')({ src: __dirname + '/public' }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -30,8 +30,11 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', routes.index);
-app.get('/users', user.list);
+/*app.get('/', routes.index);
+app.get('/users', user.list);*/
+
+app.get('*', utils.urlMap);
+app.post('*', utils.urlMap);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
