@@ -1,8 +1,21 @@
-
-/*
- * GET users listing.
+/**
+ * user routes
  */
 
-exports.list = function(req, res){
-  res.send("respond with a resource");
+exports.login = function(req, res, next) {
+  res.render('login', {
+    title: 'login'
+  });
+};
+
+exports.doLogin = function(req, res, next) {
+
+};
+
+exports.reg = function(req, res, next) {
+
+};
+
+exports.doReg = function(req, res, next) {
+
 };
