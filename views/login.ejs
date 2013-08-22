@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include head %>
+  <link rel="stylesheet" href="/css/login.css"/>
+</head>
+<body>
+  <div class="container">
+    <div class="alert alert-danger login-error" style="display: none">The username or password error !</div>
+    <form class="form-signin">
+      <h2 class="form-signin-heading">PMS</h2>
+      <input type="text" class="form-control" placeholder="Username" required="required" autofocus="autofocus">
+      <input type="password" class="form-control" placeholder="Password" required="required">
+      <hr>
+      <button class="btn btn-block btn-primary login" type="submit">进入系统</button>
+      <button class="btn btn-block btn-primary test" type="button">Alert</button>
+    </form>
+  </div>
+
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      $('.test').click(function() {
+        $('.login-error').slideDown().delay('1000').slideUp();
+      });
+    });
+  </script>
+</body>
+</html>
