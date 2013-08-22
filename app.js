@@ -2,6 +2,7 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 var utils = require('./utils');
+var lessMiddleWare = require('less-middleware');
 
 var app = express();
 
@@ -22,7 +23,12 @@ app.use(express.session());
   next();
 });*/
 app.use(app.router);
-app.use(require('less-middleware')({ src: __dirname + '/public' }));
+app.use(lessMiddleWare({
+  src: __dirname + '/public/less',
+  dest: __dirname + '/public/css',
+  prefix: '/css',
+  compress: true
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
@@ -30,11 +36,7 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-/*app.get('/', routes.index);
-app.get('/users', user.list);*/
-
-app.get('*', utils.urlMap);
-app.post('*', utils.urlMap);
+utils.route(app);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

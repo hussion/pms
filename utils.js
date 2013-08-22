@@ -34,26 +34,16 @@ me.readJsonFileSync = function(file) {
 };
 
 /**
- * url mapping({user/project...} / {find/edit...} / {id})
- * @param req
- * @param res
+ * route handle
+ * @param app
  */
-me.urlMap = function(req, res) {
-  var method = req.method;
-  var urlArray = req.params[0].substring(1).split('/');
-  var modelName = urlArray[0];
-  var modelOpration = urlArray.length > 1 ? urlArray[1] : '';
-  if (urlArray.length == 1 && modelOpration != '404')
-    return res.redirect('/404');
-  if (!fs.existsSync(path.join('./routes/', modelName, '.js')))
-    return res.redirect('/404');
-  if (method == 'GET') {
-    require('./' + modelName).modelOpration;
-  } else if (method == 'POST') {
-    modelOpration = 'do' + modelOpration.substring(0,1).toUpperCase( ) + modelOpration.substring(1);
-    require('./' + modelName).modelOpration;
-  } else {
-    return res.redirect('/404');
-  }
+me.route = function(app) {
+  // get
+  app.get('/user/login', user.login);
+  app.get('/user/reg', user.reg);
 
-};
+  //post
+  app.post('/user/login', user.doLogin);
+  app.post('/user/reg', user.doReg);
+}
+
