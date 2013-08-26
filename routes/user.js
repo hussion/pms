@@ -2,7 +2,7 @@
  * user routes
  */
 var mongoose = require('mongoose');
-var User = mongoose.model('Users');
+var User = mongoose.model('User');
 
 /**
  * To Login
@@ -23,7 +23,7 @@ exports.doLogin = function(req, res, next) {
   var username = req.body.username;
   var password = req.body.password;
 
-  User.findOne({username: username, password: password}, function(err, user) {
+  User.findOne({username: username}, function(err, user) {
     if (err) return next(err);
 
     if (user == null)
