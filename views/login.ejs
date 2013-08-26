@@ -2,27 +2,48 @@
 <html>
 <head>
   <% include head %>
-  <link rel="stylesheet" href="/css/login.css"/>
+  <link rel="stylesheet" href="/static/css/login.css"/>
 </head>
 <body>
   <div class="container">
     <div class="alert alert-danger login-error" style="display: none">The username or password error !</div>
-    <form class="form-signin">
+    <div class="alert alert-danger internet-error" style="display: none">The network seems to be not good.</div>
+    <form id="findForm" class="form-signin" data-validate="parsley">
       <h2 class="form-signin-heading">PMS</h2>
-      <input type="text" class="form-control" placeholder="Username" required="required" autofocus="autofocus">
-      <input type="password" class="form-control" placeholder="Password" required="required">
-      <hr>
-      <button class="btn btn-block btn-primary login" type="submit">进入系统</button>
-      <button class="btn btn-block btn-primary test" type="button">Alert</button>
+      <input type="text" class="form-control" id="username" placeholder="Enter Username" data-required="true" autofocus="autofocus">
+      <input type="password" class="form-control" id="password" placeholder="Enter Password" data-required="true">
+      <button type="button" class="btn btn-block btn-info login">Login in</button><br>
+      <a href="/user/reg">Sign in</a> /
+      <a href="/user/find_password">Forget password</a>
     </form>
   </div>
 
-  <script type="text/javascript" src="/js/jquery.min.js"></script>
-  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/static/js/parsley.min.js"></script>
   <script type="text/javascript">
     $(function(){
-      $('.test').click(function() {
-        $('.login-error').slideDown().delay('1000').slideUp();
+      $('.login').click(function(check) {
+        check.preventDefault();
+        var flag = $('#findForm').parsley('validate');
+        if (flag) {
+          $('.login').attr('disabled', true).text('Loading...');
+          $.ajax({
+            type: 'POST',
+            url: '/user/login',
+            data: {'username': $('#username').val(), 'password': $('#password').val()},
+            dataType: 'json',
+            timeout: 5000,
+            cache: false})
+            .done(function(msg) {
+              if (msg.result == 'error')
+                $('.login-error').slideDown().delay('2000').slideUp();
+            })
+            .fail(function() {
+              $('.internet-error').slideDown().delay('3000').slideUp();
+            }).always(function() {
+              $('.login').attr('disabled', false).text('Login in');
+            });
+        }
       });
     });
   </script>
