@@ -1,9 +1,8 @@
 var fs = require('fs');
 var me = module.exports;
-var util = require('util');
-var path = require('path');
+
 // all routes here
-var routes = require('./routes');
+var index = require('./routes');
 var user = require('./routes/user');
 
 /**
@@ -41,9 +40,14 @@ me.route = function(app) {
   // get
   app.get('/user/login', user.login);
   app.get('/user/reg', user.reg);
+  app.get('/user/find_password', user.findPassword);
 
   //post
   app.post('/user/login', user.doLogin);
   app.post('/user/reg', user.doReg);
+  app.post('/user/find_password', user.doFindPassword);
+
+  //404
+  app.get('*', index.notFind);
 }
 

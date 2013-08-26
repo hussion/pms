@@ -1,10 +1,11 @@
-var express = require('express');
-var http = require('http');
-var path = require('path');
-var utils = require('./utils');
-var lessMiddleWare = require('less-middleware');
+var express = require('express'),
+    http = require('http'),
+    path = require('path'),
+    utils = require('./utils'),
+    lessMiddleWare = require('less-middleware'),
+    app = express();
 
-var app = express();
+require('./db');
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -16,12 +17,14 @@ app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(express.cookieParser('your secret here'));
 app.use(express.session());
-/*app.use(function(req, res, next){
+app.use(express.compress());
+app.use('/static', express.static(path.join(__dirname, 'public')));
+app.use(function(req, res, next){
   var url = req.originalUrl;
-  if (url != 'user/login' && url != 'user/reg' && !req.session.user)
+  if (url != '/user/login' && url != '/user/reg' && !req.session.user)
     return res.redirect('/user/login');
   next();
-});*/
+});
 app.use(app.router);
 app.use(lessMiddleWare({
   src: __dirname + '/public/less',
@@ -29,7 +32,7 @@ app.use(lessMiddleWare({
   prefix: '/css',
   compress: true
 }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.errorHandler({ showStack: true, dumpExceptions: true }));
 
 // development only
 if ('development' == app.get('env')) {

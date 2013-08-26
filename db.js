@@ -1,5 +1,6 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema,
+    ObjectId = Schema.ObjectId;
 
 var User = new Schema({
   nickname: String,
@@ -12,7 +13,7 @@ var User = new Schema({
 
 var Project = new Schema({
   name: String,
-  creator : {type: Schema.ObjectId, ref: User},
+  creator : {type: ObjectId, ref: User},
   description : String,
   date : Date,
   progress: Number,
@@ -21,5 +22,11 @@ var Project = new Schema({
 
 mongoose.model('User', User);
 mongoose.model('Project', Project);
+
+var db = mongoose.createConnection('mongodb://localhost/pms');
+db.on('error',console.error.bind(console,'mongoDB connected error !'));
+db.once('open',function(){
+  console.log('mongoDB connected success !')
+});
 
 
