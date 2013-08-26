@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include head %>
+  <link rel="stylesheet" href="/static/css/login.css"/>
+</head>
+<body>
+  <div class="container">
+    <form class="form-signin reg" data-validate="parsley" action="/user/reg" method="post">
+      <h2 class="form-signin-heading">Registry</h2>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" data-regexp="^[0-9a-zA-Z_]{6,16}$" data-required="true" class="form-control" id="username" name="user[username]" placeholder="Enter Username">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" data-equalto="#password" data-regexp="^[\S]{6,16}$" data-required="true" class="form-control" id="password" name="user[password]" placeholder="Enter Password">
+      </div>
+      <div class="form-group">
+        <label for="cpassword">Confirm password</label>
+        <input type="password" data-equalto="#password" data-regexp="^[\S]{6,16}$" data-required="true" class="form-control" id="cpassword" placeholder="Confirm Password">
+      </div>
+      <div class="form-group">
+        <label for="nickname">Nickname</label>
+        <input type="text" data-regexp="^[0-9a-zA-Z_]{6,16}$" data-required="true" class="form-control" id="nickname" name="user[nickname]" placeholder="Enter Nickname">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" data-required="true" data-type="email" class="form-control" id="email" name="user[email]" placeholder="Enter Email">
+      </div>
+      <div class="form-group">
+        <label for="tel">Tel</label>
+        <input type="text" data-required="true" data-type="phone" class="form-control" id="tel" name="user[tel]" placeholder="Enter Tel">
+      </div>
+      <button class="btn btn-block btn-success" id="signin">Sign in</button>
+      <a class="btn btn-block btn-default" id="back" href="/user/login">Back</a>
+    </form>
+  </div>
+
+  <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/static/js/parsley.min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      $('#signin').click(function() {
+        var flag = $('.reg').parsley('validate');
+        if (flag)
+          $(this).submit();
+      });
+    });
+  </script>
+</body>
+</html>
