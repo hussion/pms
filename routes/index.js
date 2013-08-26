@@ -1,8 +1,8 @@
-
 /*
  * GET home page.
  */
 
-exports.index = function(req, res){
-  res.render('index', { title: 'Express' });
+exports.notFind = function(req, res){
+  res.status(404);
+  res.render('404', { title: 'Not Find' });
 };
