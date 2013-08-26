@@ -1,12 +1,11 @@
 var express = require('express'),
     http = require('http'),
     path = require('path'),
-    utils = require('./utils'),
     lessMiddleWare = require('less-middleware'),
     app = express();
 
 require('./db');
-
+var utils = require('./utils');
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');

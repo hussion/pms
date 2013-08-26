@@ -2,6 +2,7 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId;
 
+// schema
 var User = new Schema({
   nickname: String,
   username: String,
@@ -20,9 +21,11 @@ var Project = new Schema({
   actor: Array
 });
 
+// model
 mongoose.model('User', User);
 mongoose.model('Project', Project);
 
+// db connection
 var db = mongoose.createConnection('mongodb://localhost/pms');
 db.on('error',console.error.bind(console,'mongoDB connected error !'));
 db.once('open',function(){
