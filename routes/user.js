@@ -23,15 +23,15 @@ exports.doLogin = function(req, res, next) {
   var username = req.body.username;
   var password = req.body.password;
 
-  User.findOne({username: username}, function(err, user) {
+  User.findOne({username: username, password: password}, function(err, user) {
     if (err) return next(err);
 
     if (user == null)
-      return res.json({'result':'error'});
-
-    req.session.user = user;
-    res.locals.user = user;
-    res.redirect('/project/list');
+      res.json({'result':'error'});
+    else
+      req.session.user = user;
+      res.locals.user = user;
+      res.redirect('/project/list');
   });
 };
 
@@ -51,6 +51,7 @@ exports.reg = function(req, res) {
  * @param next
  */
 exports.doReg = function(req, res, next) {
+  req.body.user.role = 'member';
   var user = new User(req.body.user);
   user.save(function(err) {
     if (err) return next(err);
@@ -74,15 +75,13 @@ exports.findPassword = function(req, res) {
  * @param next
  */
 exports.doFindPassword = function(req, res, next) {
-  console.log(req.body);
-  res.json({'result' : 'success'});
-  /*User.findOne({username: user.username, email: user.email}, function(err, resultUser) {
+  User.findOne({username: req.body.username, email: req.body.email}, function(err, user) {
     if (err) return next(err);
 
-    if (!resultUser)
-      res.send('notMatch');
+    if (!user)
+      res.json({'result' : 'notMatch'});
     else
       //send mail to user's mailbox
       res.send();
-  });*/
+  });
 };

@@ -26,7 +26,9 @@ mongoose.model('User', User);
 mongoose.model('Project', Project);
 
 // db connection
-var db = mongoose.createConnection('mongodb://localhost/pms');
+mongoose.connect('mongodb://localhost/pms');
+
+var db = mongoose.connection;
 db.on('error',console.error.bind(console,'mongoDB connected error !'));
 db.once('open',function(){
   console.log('mongoDB connected success !')
