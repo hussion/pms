@@ -14,11 +14,11 @@ var User = new Schema({
 
 var Project = new Schema({
   name: String,
-  creator : {type: ObjectId, ref: User},
+  manager : {type: ObjectId, ref: User},
   description : String,
   date : Date,
   progress: Number,
-  actor: Array
+  employee: Array
 });
 
 // model

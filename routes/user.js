@@ -27,11 +27,11 @@ exports.doLogin = function(req, res, next) {
     if (err) return next(err);
 
     if (user == null)
-      res.json({'result':'error'});
+      return res.json({'result':'error'});
     else
       req.session.user = user;
       res.locals.user = user;
-      res.redirect('/project/list');
+      return res.redirect('/project/list');
   });
 };
 
@@ -65,7 +65,7 @@ exports.doReg = function(req, res, next) {
  * @param res
  */
 exports.findPassword = function(req, res) {
-  res.render('find_password', {title: 'Find Password'});
+  res.render('find-password', {title: 'Find Password'});
 };
 
 /**

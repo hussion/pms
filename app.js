@@ -14,23 +14,19 @@ app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
-app.use(express.cookieParser('your secret here'));
+app.use(express.cookieParser('pms'));
 app.use(express.session());
 app.use(express.compress());
+app.use(app.router);
 app.use('/static', express.static(path.join(__dirname, 'public')));
-app.use(function(req, res, next){
+/*app.use(function(req, res, next){
   var url = req.originalUrl;
   if (url != '/user/login' && url != '/user/reg' && !req.session.user)
     return res.redirect('/user/login');
   next();
-});
-app.use(app.router);
-app.use(lessMiddleWare({
-  src: __dirname + '/public/less',
-  dest: __dirname + '/public/css',
-  prefix: '/css',
-  compress: true
-}));
+});*/
+
+
 app.use(express.errorHandler({ showStack: true, dumpExceptions: true }));
 
 // development only

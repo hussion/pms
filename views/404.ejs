@@ -2,8 +2,19 @@
 <html>
 <head>
   <title><%= title %></title>
+  <style type="text/css">
+    body {
+      background: #fff url(/static/img/bg.jpg) repeat;
+    }
+    #dialog {
+      background: transparent url(/static/img/page-not-found.png) no-repeat;
+      height: 306px;
+      margin: 100px auto;
+      width: 485px;
+    }
+  </style>
 </head>
 <body>
-  <h1 style="color: #ff0000">Oops !, 404</h1>
+  <div id="dialog"></div>
 </body>
 </html>

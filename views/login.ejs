@@ -22,6 +22,10 @@
   <script type="text/javascript" src="/static/js/parsley.min.js"></script>
   <script type="text/javascript">
     $(function(){
+      $('#password').keydown(function(e) {
+        if (e.keyCode == 13)
+          $('.login').click();
+      });
       $('.login').click(function(check) {
         check.preventDefault();
         var flag = $('#findForm').parsley('validate');

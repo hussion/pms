@@ -4,6 +4,7 @@ var me = module.exports;
 // all routes here
 var index = require('./routes');
 var user = require('./routes/user');
+var project = require('./routes/project');
 
 /**
  * read json file
@@ -41,6 +42,10 @@ me.route = function(app) {
   app.get('/user/login', user.login);
   app.get('/user/reg', user.reg);
   app.get('/user/find_password', user.findPassword);
+  app.get('/project/list', project.list);
+  app.get('/project/main', project.main);
+
+  app.get('/404', index.notFind);
 
   //post
   app.post('/user/login', user.doLogin);
@@ -48,6 +53,8 @@ me.route = function(app) {
   app.post('/user/find_password', user.doFindPassword);
 
   //404
-  app.get('*', index.notFind);
+  /*app.get('*', function(req, res) {
+    return res.redirect('/404');
+  });*/
 }
 

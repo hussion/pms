@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <% include head %>
+  <link rel="stylesheet" href="/static/css/navbar.css"/>
+  <link rel="stylesheet" href="/static/css/project.css"/>
+</head>
+<body>
+  <% include navbar %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="page-header">
+          <h4><span class="glyphicon glyphicon-list"></span> Project List</h4>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <a href="/project/main" class="p_name"><span class="glyphicon glyphicon-link"></span> 百度项目</a>
+            <a href="" class="p_del p_action" data-toggle="modal" data-target="#delProject"><span class="glyphicon glyphicon-trash"></span></a>
+            <a href="" class="p_edit p_action" data-toggle="modal" data-target="#editProject"><span class="glyphicon glyphicon-pencil"></span></a>
+          </div>
+          <div class="panel-body">
+            <p>
+              这是第二个项目啊，好好做
+            </p>
+            <hr>
+            <div class="progress">
+              <div class="progress-bar progress-bar-info"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 65%">
+                <span class="sr-only">45% Complete</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <a href="" class="p_name"><span class="glyphicon glyphicon-link"></span> 竹西项目</a>
+            <a href="" class="p_del p_action" data-toggle="modal" data-target="#delProject"><span class="glyphicon glyphicon-trash"></span></a>
+            <a href="" class="p_edit p_action" data-toggle="modal" data-target="#editProject"><span class="glyphicon glyphicon-pencil"></span></a>
+          </div>
+          <div class="panel-body">
+            <p>
+              这是第一个项目啊，好好做
+            </p>
+            <hr>
+            <div class="progress">
+              <div class="progress-bar progress-bar-success"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                <span class="sr-only">45% Complete</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <a href="" class="p_name"><span class="glyphicon glyphicon-link"></span> 竹西项目</a>
+            <a href="" class="p_del p_action" data-toggle="modal" data-target="#delProject"><span class="glyphicon glyphicon-trash"></span></a>
+            <a href="" class="p_edit p_action" data-toggle="modal" data-target="#editProject"><span class="glyphicon glyphicon-pencil"></span></a>
+          </div>
+          <div class="panel-body">
+            <p>
+              这是第一个项目啊，好好做
+            </p>
+            <hr>
+            <div class="progress">
+              <div class="progress-bar progress-bar-warning"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 38%">
+                <span class="sr-only">45% Complete</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <a href="" class="p_name"><span class="glyphicon glyphicon-link"></span> 竹西项目</a>
+            <a href="" class="p_del p_action" data-toggle="modal" data-target="#delProject"><span class="glyphicon glyphicon-trash"></span></a>
+            <a href="" class="p_edit p_action" data-toggle="modal" data-target="#editProject"><span class="glyphicon glyphicon-pencil"></span></a>
+          </div>
+          <div class="panel-body">
+            <p>
+              这是第一个项目啊，好好做
+            </p>
+            <hr>
+            <div class="progress">
+              <div class="progress-bar progress-bar-danger"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                <span class="sr-only">45% Complete</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="page-header">
+          <h4><span class="glyphicon glyphicon-search"></span> Search</h4>
+        </div>
+        <div class="input-group">
+          <input type="text" class="form-control">
+          <div class="input-group-btn">
+            <button type="button" class="btn btn-info" tabindex="-1">Search</button>
+            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu pull-right" role="menu">
+              <li role="presentation" class="dropdown-header">Search Arguments</li>
+              <li class="divider"></li>
+              <li><a href="#">By Project</a></li>
+              <li><a href="#">By Manager</a></li>
+              <li><a href="#">By Employee</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="page-header">
+          <h4><span class="glyphicon glyphicon-cog"></span> Opration</h4>
+        </div>
+        <button class="btn btn-danger" data-toggle="modal" data-target="#newProject"><span class="glyphicon glyphicon-plus"></span> New Project</button>
+      </div>
+    </div>
+    <hr>
+    <footer>
+      <p>&copy; PMS 2013</p>
+    </footer>
+  </div>
+
+  <!--modal-->
+  <div class="modal fade" id="newProject" tabindex="-1" role="dialog" aria-labelledby="newLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="newLabel">New Project</h4>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-success">Save</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
+  <!--modal-->
+  <div class="modal fade" id="editProject" tabindex="-1" role="dialog" aria-labelledby="editLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="editLabel">Edit Project</h4>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-success">Save</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
+  <!--modal-->
+  <div class="modal fade" id="delProject" tabindex="-1" role="dialog" aria-labelledby="delLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="delLabel">Confirm Delete</h4>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-danger">Delete</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
+  <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      $('.panel').on('mouseover', function() {
+        var p_heading =  $(this).children('.panel-heading');
+        p_heading.children('.p_name').css({
+          color: '#428BCA'
+        });
+        p_heading.children('.p_action').show();
+      });
+      $('.panel').on('mouseleave', function() {
+        var p_heading =  $(this).children('.panel-heading');
+        p_heading.children('.p_name').css({
+          color: '#333'
+        });
+        p_heading.children('.p_action').hide();
+      });
+    });
+  </script>
+</body>
+</html>
