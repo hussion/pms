@@ -27,13 +27,16 @@ module.exports = function(grunt) {
     watch: {
       scripts: {
         files: ['public/less/*.less'],
-        tasks: ['less']
+        tasks: ['less'],
+        options: {
+          livereload: true
+        }
       },
       reload: {
         options: {
           livereload: true
         },
-        files: ['public/views/*.ejs']
+        files: ['views/*.ejs']
       }
     }
   });

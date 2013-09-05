@@ -1,7 +1,6 @@
 var express = require('express'),
     http = require('http'),
     path = require('path'),
-    lessMiddleWare = require('less-middleware'),
     app = express();
 
 require('./db');
