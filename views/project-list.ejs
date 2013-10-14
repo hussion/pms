@@ -12,7 +12,7 @@
     <div class="row">
       <div class="col-md-8">
         <div class="page-header">
-          <h4><span class="glyphicon glyphicon-list"></span> Project List</h4>
+          <h4><span class="glyphicon glyphicon-list"></span> 项目列表</h4>
         </div>
         <div class="panel panel-default">
           <div class="panel-heading">
@@ -89,28 +89,30 @@
       </div>
       <div class="col-md-4">
         <div class="page-header">
-          <h4><span class="glyphicon glyphicon-search"></span> Search</h4>
+          <h4><span class="glyphicon glyphicon-search"></span> 搜 索</h4>
         </div>
         <div class="input-group">
           <input type="text" class="form-control">
           <div class="input-group-btn">
-            <button type="button" class="btn btn-info" tabindex="-1">Search</button>
-            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" tabindex="-1">
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu pull-right" role="menu">
-              <li role="presentation" class="dropdown-header">Search Arguments</li>
-              <li class="divider"></li>
-              <li><a href="#">By Project</a></li>
-              <li><a href="#">By Manager</a></li>
-              <li><a href="#">By Employee</a></li>
-            </ul>
+            <button type="button" class="btn btn-info" tabindex="-1">搜索</button>
           </div>
         </div>
-        <div class="page-header">
-          <h4><span class="glyphicon glyphicon-cog"></span> Opration</h4>
+        <div class="search-type">
+            <span class="label label-danger">搜索条件:</span>
+            <span>
+              <input type="radio" name="type" checked="checked"/> 项目名称
+            </span>
+            <span>
+              <input type="radio" name="type"/> 负责人
+            </span>
+            <span>
+              <input type="radio" name="type"/> 参与人
+            </span>
         </div>
-        <button class="btn btn-danger" data-toggle="modal" data-target="#newProject"><span class="glyphicon glyphicon-plus"></span> New Project</button>
+        <div class="page-header">
+          <h4><span class="glyphicon glyphicon-cog"></span> 操 作</h4>
+        </div>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#newProject"><span class="glyphicon glyphicon-plus-sign"></span> 新建项目</button>
       </div>
     </div>
     <hr>

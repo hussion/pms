@@ -12,20 +12,23 @@
   <div class="container">
     <div class="row">
       <div class="col-md-3">
+        <div class="page-header">
+          <h4><span class="glyphicon glyphicon-th"></span> 管理</h4>
+        </div>
         <ul class="nav nav-list sidenav">
-          <li><a href="#breadcrumbs"><span class="glyphicon glyphicon-share"></span> 人员管理</a></li>
-          <li><a href="#pagination"><i class="icon-chevron-right"></i> Pagination</a></li>
-          <li><a href="#labels-badges"><i class="icon-chevron-right"></i> Labels and badges</a></li>
-          <li><a href="#typography"><i class="icon-chevron-right"></i> Typography</a></li>
-          <li><a href="#thumbnails"><i class="icon-chevron-right"></i> Thumbnails</a></li>
-          <li><a href="#alerts"><i class="icon-chevron-right"></i> Alerts</a></li>
-          <li><a href="#progress"><i class="icon-chevron-right"></i> Progress bars</a></li>
-          <li><a href="#media"><i class="icon-chevron-right"></i> Media object</a></li>
-          <li><a href="#misc"><i class="icon-chevron-right"></i> Misc</a></li>
+          <li class="active"><a href="#msg"><span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;信息流</a></li>
+          <li><a href="#task"><span class="glyphicon glyphicon-tasks"></span>&nbsp;&nbsp;任务管理</a></li>
+          <li><a href="#blog"><span class="glyphicon glyphicon-bookmark"></span>&nbsp;&nbsp;博客管理</a></li>
+          <li><a href="#file"><span class="glyphicon glyphicon-file"></span>&nbsp;&nbsp;文档分享</a></li>
+          <li><a href="#contact"><span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;联系人</a></li>
+          <li><a href="#alerts"><span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;会议记录</a></li>
         </ul>
       </div>
 
-      <div class="col-md-5">
+      <div class="col-md-6">
+        <div class="page-header">
+          <h4><span class="glyphicon glyphicon-comment"></span> 信息流</h4>
+        </div>
         <div class="msg_header">
           <textarea class="form-control" rows="4"></textarea>
           <button class="btn btn-danger" id="msg_send"><span class="glyphicon glyphicon-share"></span> 发送</button>
@@ -37,8 +40,14 @@
               <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACm0lEQVR4Xu2Y64upURTGFzLJPVGuo3wg95IyU+JvZ3KJUiKhlOKLEUPuxuWctcrUOc6UebeTZO1PXt699trPftb6ZcvG4/ERHnjIWAB2AJcA94AH7oHATZApwBRgCjAFmAIPrABjkDHIGGQMMgYfGAL8Z4gxyBhkDDIGGYOMwSsosN/voVQqQTgcBq1Wexbxd7OF9XoNdrv9otWuHe+7Ra+GwUajAYPBANLpNMjl8j/Ww828vb2Bz+cDm812kQDXjvdfBcDTrVQqkEgkQKfTna1Vq9VInGAwSALgZ5VKBQaDgd59f3+Hp6cnMBqN9PzTeBcp+s1Lwg44na7FYqEN/j1wsygAlsXz8zOVQK/Xg3a7DalUCpbLJZTLZYjH4ySAlHg3FaDZbEK/3//KIRQKgdVqpeftdkvWDwQCMJ/PQa1Wg8PhoN/QMavVit5xu93g8Xjoe6nxpIog5IDdbgfZbBa8Xi84nU4SotVq0ckqlUooFotk7VgsBljTaPmTAHjSOBdL4eXlBWQyGYjEu4kAo9GI7I2NDzdwPB4hk8kQCT4+PqDb7Z7ldeoDw+EQqtUq/f76+goajQZE4t1EALRwLpeDZDJJJ4nP+XyeThTFOBwOlBdSodPp0DtodRQLT9/v98N0OqUmiDE2m42keOg2qUOoBHDRU4dHe+NmsBlGo9GzfOr1OpWAy+WCQqFAJYKN7+Qak8kEkUhEUjypm8d5wgJgELTzbDYDvV4PZrP5n/mgOxQKBfWEyWRCYqATcHx+fsJisfjC4E/j3VwAkQRuPfcqDrj1JkTWZwH4RohvhPhGiG+ERLrovc9lCjAFmAJMAabAvXdykfyZAkwBpgBTgCkg0kXvfS5TgCnAFGAKMAXuvZOL5M8UeHQK/AKgck6f7dz82QAAAABJRU5ErkJggg==" style="width: 64px; height: 64px;">
             </a>
             <div class="media-body">
-              <h4 class="media-heading">Media heading</h4>
-              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio
+              <p class="media-heading">今天天气不错啊，打球去吗？今天天气不错啊，打球去吗？今天天气不错啊，打球去吗？</p>
+              <small>
+                  <span class="glyphicon glyphicon-time"></span>
+                  <span>2分钟前 By 李金铭</span>
+                  <a class="del-msg" href="javascript:;">
+                    <span class="glyphicon glyphicon-trash"></span>
+                  </a>
+              </small>
             </div>
           </div>
           <div class="media">
@@ -46,13 +55,48 @@
               <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACm0lEQVR4Xu2Y64upURTGFzLJPVGuo3wg95IyU+JvZ3KJUiKhlOKLEUPuxuWctcrUOc6UebeTZO1PXt699trPftb6ZcvG4/ERHnjIWAB2AJcA94AH7oHATZApwBRgCjAFmAIPrABjkDHIGGQMMgYfGAL8Z4gxyBhkDDIGGYOMwSsosN/voVQqQTgcBq1Wexbxd7OF9XoNdrv9otWuHe+7Ra+GwUajAYPBANLpNMjl8j/Ww828vb2Bz+cDm812kQDXjvdfBcDTrVQqkEgkQKfTna1Vq9VInGAwSALgZ5VKBQaDgd59f3+Hp6cnMBqN9PzTeBcp+s1Lwg44na7FYqEN/j1wsygAlsXz8zOVQK/Xg3a7DalUCpbLJZTLZYjH4ySAlHg3FaDZbEK/3//KIRQKgdVqpeftdkvWDwQCMJ/PQa1Wg8PhoN/QMavVit5xu93g8Xjoe6nxpIog5IDdbgfZbBa8Xi84nU4SotVq0ckqlUooFotk7VgsBljTaPmTAHjSOBdL4eXlBWQyGYjEu4kAo9GI7I2NDzdwPB4hk8kQCT4+PqDb7Z7ldeoDw+EQqtUq/f76+goajQZE4t1EALRwLpeDZDJJJ4nP+XyeThTFOBwOlBdSodPp0DtodRQLT9/v98N0OqUmiDE2m42keOg2qUOoBHDRU4dHe+NmsBlGo9GzfOr1OpWAy+WCQqFAJYKN7+Qak8kEkUhEUjypm8d5wgJgELTzbDYDvV4PZrP5n/mgOxQKBfWEyWRCYqATcHx+fsJisfjC4E/j3VwAkQRuPfcqDrj1JkTWZwH4RohvhPhGiG+ERLrovc9lCjAFmAJMAabAvXdykfyZAkwBpgBTgCkg0kXvfS5TgCnAFGAKMAXuvZOL5M8UeHQK/AKgck6f7dz82QAAAABJRU5ErkJggg==" style="width: 64px; height: 64px;">
             </a>
             <div class="media-body">
-              <h4 class="media-heading">Media heading</h4>
-              <p>amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio</p>
+              <p class="media-heading">上次那个项目，最后结果如何啊，有没有人知道</p>
+              <small>
+                  <span class="glyphicon glyphicon-time"></span>
+                  <span>5天前 By 王明月</span>
+                  <a class="del-msg" href="javascript:;">
+                    <span class="glyphicon glyphicon-trash"></span>
+                  </a>
+              </small>
             </div>
           </div>
         </div>
       </div>
+      <div class="col-md-3">
+        <div class="page-header">
+          <h4><span class="glyphicon glyphicon-calendar"></span> 日历</h4>
+        </div>
+        </div>
+
+      </div>
     </div>
   </div>
+
+  <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/static/js/easing.1.3.min.js"></script>
+  <script>
+    $(function() {
+        /*handle navbar selected*/
+        var selected = $('.sidenav').children('.active');
+        $('.sidenav').mouseover(function() {
+            selected.removeClass('active');
+        });
+        $('.sidenav').mouseout(function() {
+            selected.addClass('active');
+        });
+        /*delete msg tips*/
+        $('.del-msg').tooltip({
+            placement: 'right',
+            triggle: 'hover',
+            title: '删除消息?'
+        });
+    });
+  </script>
 </body>
 </html>
